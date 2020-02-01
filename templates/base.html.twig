@@ -2,11 +2,30 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="{% block description %}{#{{ page.metaDescription|raw }}#}{% endblock %}" />
+        <meta name="keywords" content="{% block keywords %}{% endblock %}" />
+        <meta http-equiv="Last-Modified" content="{#{{ page.modifyDate|date('D, d M Y H:i:s') }#}} GMT">
+        <link rel="canonical" href="{#{{ app.request.schemeAndHttpHost~page.path }}#}" />
+
+        <meta property="og:title" content="{{ block('title') }}" />
+        <meta property="og:keywords" content="{{ block('keywords') }}" />
+        <meta property="og:description" content="{{ block('description') }}" />
+        <meta property="og:url" content="{{ app.request.uri}}" />
+        {#<meta property="og:image" content="{{ app.request.schemeAndHttpHost }}/img/og-logo.png" />#}
+
+        <meta property="schema:name" content="{{ block('title') }}" />
+        <meta property="schema:description" content="{{ block('description') }}" />
+
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>
