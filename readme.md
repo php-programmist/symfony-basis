@@ -23,9 +23,9 @@ php bin/console doctrine:migrations:migrate
 ```
 ## Создать пользователя в БД:
 В таблице user
-username - Указать произвольное имя пользователя
-roles - ["ROLE_ADMIN"]
-password - указать хэш пароля.
+ - username - Указать произвольное имя пользователя
+ - roles - ["ROLE_ADMIN"]
+ - password - указать хэш пароля.
 Получить хэш пароля можно с помощью утилиты:
 ```
 php bin/console security:encode
@@ -48,7 +48,7 @@ yarn watch
 ```
 import './global/callback-popup'
 ```
-6. Подключение SCSS осуществляется в файле assets/scss/global.scss с помощью синтаксиса импорта:
+6. Подключение SCSS осуществляется в файле assets/scss/app.scss с помощью синтаксиса импорта:
 ```
 @import "/global/callback-popup";
 ```
