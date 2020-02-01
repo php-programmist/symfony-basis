@@ -1,0 +1,10 @@
+:root {
+    /* make the backend contents as wide as the browser window */
+    --body-max-width: 100%;
+}
+.select2-container--bootstrap .select2-selection{
+    max-width: 650px;
+}
+span.select2.select2-container.select2-container--bootstrap{
+    width: 650px!important;
+}

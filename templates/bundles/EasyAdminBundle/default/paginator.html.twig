@@ -1,0 +1,54 @@
+{% trans_default_domain 'EasyAdminBundle' %}
+
+{% set _paginator_request_parameters = _request_parameters|merge({'referer': null}) %}
+
+<div class="list-pagination">
+    <div class="list-pagination-counter">
+        {{ 'paginator.counter'|trans({ '%start%': paginator.currentPageOffsetStart, '%end%': paginator.currentPageOffsetEnd, '%results%': paginator.nbResults})|raw }}
+    </div>
+
+    <div class="pager pagination list-pagination-paginator {{ not paginator.hasPreviousPage ? 'first-page' }} {{ not paginator.hasNextPage ? 'last-page' }}">
+        <a class="btn btn-secondary {{ 1 == paginator.currentPage? 'disabled' }}"
+           href="{{ paginator.currentPage == paginator.nbPages ? '#' : path('easyadmin', _paginator_request_parameters|merge({ page: 1 }) ) }}">
+            <span class="btn-label">{{ 'paginator.first'|trans }}</span> <i class="fa fa-angle-double-left"></i>
+        </a>
+        <a class="btn btn-secondary {{ not paginator.hasPreviousPage ? 'disabled' }}"
+           href="{{ not paginator.hasPreviousPage ? '#' : path('easyadmin', _paginator_request_parameters|merge({ page: paginator.previousPage }) ) }}">
+            <i class="fa fa-angle-left"></i> <span class="btn-label">{{ 'paginator.previous'|trans }}</span>
+        </a>
+
+        {# BEGIN DISPLAYING PAGE NUMBERS #}
+
+        {# the number of pages that are displayed around the active page #}
+        {% set nearbyPagesLimit = 5 %}
+
+        {% if paginator.currentPage > 1 %}
+            {% for i in range(paginator.currentPage-nearbyPagesLimit, paginator.currentPage-1) %}
+                {% if ( i > 0 ) %}
+                    <a class="btn btn-secondary" href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: i }) ) }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        <a class="btn btn-secondary" class="current" style="background-color: #e3e7ed">{{ paginator.currentPage }}</a>
+
+        {% if paginator.currentPage < paginator.nbPages %}
+            {% for i in range(paginator.currentPage+1, paginator.currentPage + nearbyPagesLimit) %}
+                {% if ( i <= paginator.nbPages ) %}
+                    <a class="btn btn-secondary" href="{{ path('easyadmin', _paginator_request_parameters|merge({ page: i }) ) }}">{{ i }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {# END DISPLAYING PAGE NUMBERS #}
+
+        <a class="btn btn-secondary {{ not paginator.hasNextPage ? 'disabled' }}"
+           href="{{ not paginator.hasNextPage ? '#' : path('easyadmin', _paginator_request_parameters|merge({ page: paginator.nextPage }) ) }}">
+            <span class="btn-label">{{ 'paginator.next'|trans }}</span> <i class="fa fa-angle-right"></i>
+        </a>
+        <a class="btn btn-secondary {{ paginator.currentPage == paginator.nbPages ? 'disabled' }}"
+           href="{{ paginator.currentPage == paginator.nbPages ? '#' : path('easyadmin', _paginator_request_parameters|merge({ page: paginator.nbPages }) ) }}">
+            <span class="btn-label">{{ 'paginator.last'|trans }}</span> <i class="fa fa-angle-double-right"></i>
+        </a>
+    </div>
+</div>
