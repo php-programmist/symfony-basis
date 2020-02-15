@@ -4,6 +4,8 @@ easy_admin:
         assets:
             css:
                 - 'css/admin.css'
+            js:
+                - 'js/apply_button.js'
         menu:
             - { label: 'Настройки',icon: 'cogs',entity: 'Config'}
     list:
