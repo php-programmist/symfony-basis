@@ -1,6 +1,9 @@
 easy_admin:
     site_name: 'Админ-панель'
     design:
+        form_theme: # Both themes are for ckeditor integration
+            - "@EasyAdmin/form/bootstrap_4.html.twig"
+            - "@FOSCKEditor/Form/ckeditor_widget.html.twig"
         assets:
             css:
                 - 'css/admin.css'
