@@ -1,0 +1,11 @@
+{% extends '@!EasyAdmin/default/layout.html.twig' %}
+
+{% block header_custom_menu %}
+    <div class="header_custom_menu">
+        <div class="alert alert-success success-msg"></div>
+        <div class="alert alert-danger error-msg"></div>
+        <div class="btn btn-warning cache-clear-button" data-url="{{ path('admin_cache_clear') }}">Очистить кэш</div>
+        <div class="btn btn-primary"><a href="/" target="_blank">На главную</a></div>
+        {{ parent() }}
+    </div>
+{% endblock header_custom_menu %}

@@ -9,6 +9,7 @@ easy_admin:
                 - 'css/admin.css'
             js:
                 - 'js/apply_button.js'
+                - 'js/cache_clear.js'
         menu:
             - { label: 'Настройки',icon: 'cogs',entity: 'Config'}
     list:
