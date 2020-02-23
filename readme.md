@@ -22,14 +22,14 @@ php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
-## Создать пользователя в БД:
-В таблице user
- - username - Указать произвольное имя пользователя
- - roles - ["ROLE_ADMIN"]
- - password - указать хэш пароля.
-Получить хэш пароля можно с помощью утилиты:
+## Создать пользователя:
+С помощью команды можно создать пользователя **admin** с паролем **password**
 ```
-php bin/console security:encode
+php bin/console user:create admin password
+```
+Изменить пароль можно так:
+```
+php bin/console user:change-password admin new_password
 ```
 ## Работа с Фронт-эндом (JS и CSS)
 Сборка осуществляется посредством [WebPack](https://webpack.js.org/). Для настройки которого используется [Encore](https://symfony.com/doc/current/frontend.html)
