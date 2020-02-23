@@ -55,5 +55,35 @@ import './global/callback-popup'
 7. Настройка WebPack в файле - webpack.config.js
 8. Сборка на продакшене:
 ```
-yarn encore production
+yarn encore build
 ```
+
+## Ленивая загрузка изображений и видео
+Обычные изображения:
+```
+<img {{ lazy_load('/img/menu.jpg',['some-class']) }} alt="Menu">
+```
+Фоновые изображения:
+```
+<div {{ lazy_load_bg('/img/works-bg.png',['some-class']) }}></div>
+```
+Изображения слайдера Slick:
+```
+<img {{ slick_lazy_load(asset('img/bslider1/1.jpg')) }} alt="*">
+```
+Видео HTML5:
+```
+<video muted="" autoplay="" loop="" preload="auto" class="lazy">
+    <source data-src="{{ asset('video/video.mp4') }}" type="video/mp4">
+</video>
+```
+Видео YouTube:
+1. Раскомментировать в assets/js/app.js строку:
+```
+import './libs/lazy_youtube'
+```
+2. в Twig:
+```
+{{ lazy_youtube('https://youtu.be/yfTLx-fcJio') }}
+```
+
