@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ConfigRepository")
- * @ORM\Table( indexes={@ORM\Index(name="name", columns={"name"})})
+ * @ORM\Table( uniqueConstraints={@ORM\UniqueConstraint(name="name", columns={"name"})})
  */
 class Config
 {
@@ -18,7 +18,7 @@ class Config
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=191)
      */
     private $name;
 
