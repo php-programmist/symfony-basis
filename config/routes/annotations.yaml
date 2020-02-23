@@ -1,3 +1,12 @@
+mail:
+    resource: ../../src/Controller/Mail/
+    prefix: /mail
+    name_prefix: mail.
+    trailing_slash_on_root: false
+    type: annotation
+    defaults:
+        _format: json
+
 controllers:
     resource: ../../src/Controller/
     type: annotation

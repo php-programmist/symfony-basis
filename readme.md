@@ -16,10 +16,11 @@ DATABASE_URL=mysql://user:password@127.0.0.1:3306/db_name
 ```
 composer install
 ```
-Создать БД и выполнить миграции:
+Создать БД, выполнить миграции и фикстуры:
 ```
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
+php bin/console doctrine:fixtures:load
 ```
 ## Создать пользователя в БД:
 В таблице user
@@ -86,4 +87,29 @@ import './libs/lazy_youtube'
 ```
 {{ lazy_youtube('https://youtu.be/yfTLx-fcJio') }}
 ```
+
+## Настройка отправки почты в dev-режиме
+Для тестирования отправки почты в процессе разработки можно использовать Gmail или Mailtrap
+### Отправка через Gmail:
+Gmail-транспорт уже установлен. Нужно лишь в **.env.local** добавить строку для настройки подключения:
+```
+MAILER_DSN=gmail://GMAIL_LOGIN:GMAIL_PASSWORD@default
+```
+Вместо **GMAIL_LOGIN** и **GMAIL_PASSWORD** указать свои логин и пароль от аккаунта Gmail. В настройках этого аккаунта нужно разрешить [использование небезопасных приложений](https://myaccount.google.com/lesssecureapps)
+### Отправка через MailTrap:
+Сервис MailTrap не производит реальную отправку писем, а лишь собирает их в виртуальном почтовом ящике, который доступен только Вам
+1. Необходимо зарегистрировать аккаунт в [MailTrap](https://mailtrap.io)
+2. Выбрать бесплатный план
+3. Перейти в настройки ящика и взять от туда логин и пароль
+4. Добавить строку подключения в **.env.local**:
+```
+MAILER_DSN=smtp://LOGIN:PASSWORD@smtp.mailtrap.io:25
+```
+Вместо **LOGIN** и **PASSWORD** указать свои логин и пароль из настроек ящика.
+### Обработчик формы обратной связи:
+Роут:
+```
+POST mail/callback/consultation
+```
+В админке необходимо указать получателей и отправителей в параметрах, начинающихся с **mail.**
 
