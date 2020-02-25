@@ -8,8 +8,8 @@ easy_admin:
             css:
                 - 'css/admin.css'
             js:
-                - 'js/apply_button.js'
-                - 'js/cache_clear.js'
+                - 'js/admin/apply_button.js'
+                - 'js/admin/cache_clear.js'
         menu:
             - { label: 'Настройки',icon: 'cogs',entity: 'Config'}
     list:
