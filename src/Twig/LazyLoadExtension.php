@@ -63,7 +63,7 @@ class LazyLoadExtension extends AbstractExtension
         if ($lazy_off) {
             return 'style="background:url(' . $src . ')"';
         }
-        return 'data-bg="url(' . $src . '") class="' . implode(' ', $classes) . '"';
+        return 'data-bg="url(' . $src . ')" class="' . implode(' ', $classes) . '"';
     }
     
     /**
