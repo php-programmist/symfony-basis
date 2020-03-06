@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Controller\Admin;
+use App\Logger\FileSqlLogger;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\EasyAdminController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,11 +16,26 @@ class AdminController extends EasyAdminController
      * @var AdapterInterface
      */
     protected $cache;
+    /**
+     * @var FileSqlLogger
+     */
+    protected $sql_logger;
     
-    public function __construct(AdapterInterface $cache)
+    public function __construct(AdapterInterface $cache,FileSqlLogger $sql_logger)
     {
         $this->cache = $cache;
+        $this->sql_logger = $sql_logger;
     }
+    
+    protected function initialize(Request $request)
+    {
+        parent::initialize($request);
+        if ($this->em) {
+            $connection = $this->em->getConnection();
+            $connection->getConfiguration()->setSQLLogger($this->sql_logger);
+        }
+    }
+    
     /**
      * @Route("/cache-clear", name="admin_cache_clear")
      */
@@ -52,4 +69,5 @@ class AdminController extends EasyAdminController
         
         return parent::redirectToReferrer();
     }
+    
 }
