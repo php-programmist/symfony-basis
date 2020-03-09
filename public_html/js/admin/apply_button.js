@@ -9,6 +9,6 @@ $(document).ready(function () {
 	$('.action-apply').bind('click', function(e) {
 		e.preventDefault();
 		$('input[name="referer"]').val('apply');
-		$('form').submit();
+		$('.edit-form,.new-form').submit();
 	});
 });
