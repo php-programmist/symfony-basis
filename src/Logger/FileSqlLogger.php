@@ -68,6 +68,9 @@ class FileSqlLogger implements SQLLogger
                     case 'string':
                         $fullSql.= '"'.addslashes($param).'"';
                         break;
+                    case 'boolean':
+                        $fullSql.= (int)$param;
+                        break;
                     case 'integer':
                     case 'float':
                         $fullSql.= $param;
