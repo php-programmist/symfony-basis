@@ -59,6 +59,10 @@ class FileSqlLogger implements SQLLogger
             if($sql[$i]=='?'){
                 $param=array_shift($params);
                 $type=array_shift($types);
+                if ($param === null) {
+                    $fullSql.= 'NULL';
+                    continue;
+                }
                 switch ($type){
                     case 'text':
                     case 'string':
