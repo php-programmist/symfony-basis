@@ -6,6 +6,9 @@
 .form-widget input.form-control, .form-widget select.form-control, .form-widget textarea.form-control {
     max-width: 100%;
 }
+.select2-container--bootstrap .select2-selection{
+    max-width: 100%;
+}
 .form-group label, .form-group legend.col-form-label {
     flex: 15% 0 0;
 }
