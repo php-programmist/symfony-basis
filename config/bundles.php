@@ -17,4 +17,5 @@ return [
     FOS\CKEditorBundle\FOSCKEditorBundle::class => ['all' => true],
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle::class => ['dev' => true, 'test' => true],
+    PhpProgrammist\FileSqlLoggerBundle\FileSqlLoggerBundle::class => ['all' => true],
 ];

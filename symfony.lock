@@ -154,6 +154,9 @@
     "php": {
         "version": "7.3"
     },
+    "php-programmist/file-sql-logger-bundle": {
+        "version": "v1.0.0"
+    },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
     },

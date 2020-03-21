@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "580cd7a2c5d5a070eafa2e1abf3e8236",
+    "content-hash": "a5a890e2972070f90c07c7b4327baf6e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1745,6 +1745,52 @@
                 "paging"
             ],
             "time": "2019-07-17T20:56:16+00:00"
+        },
+        {
+            "name": "php-programmist/file-sql-logger-bundle",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-programmist/file-sql-logger-bundle.git",
+                "reference": "7db8f4367397d0f18c2ffa80e433281ab301824d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-programmist/file-sql-logger-bundle/zipball/7db8f4367397d0f18c2ffa80e433281ab301824d",
+                "reference": "7db8f4367397d0f18c2ffa80e433281ab301824d",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "^2.10",
+                "php": "^7.2.5",
+                "symfony/config": "^4.4 || ^5.0",
+                "symfony/dependency-injection": "^4.4 || ^5.0",
+                "symfony/filesystem": "^4.4 || ^5.0",
+                "symfony/http-kernel": "^4.4 || ^5.0",
+                "symfony/yaml": "^4.4 || ^5.0"
+            },
+            "require-dev": {
+                "symfony/framework-bundle": "^4.4 || ^5.0",
+                "symfony/phpunit-bridge": "^4.4 || ^5.0"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-4": {
+                    "PhpProgrammist\\FileSqlLoggerBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-Programmist.ru",
+                    "email": "php.programmist.ru@gmail.com"
+                }
+            ],
+            "description": "Provides service that logs all mutable queries to the file",
+            "time": "2020-03-21T18:09:06+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controller\Admin;
-use App\Logger\FileSqlLogger;
+
+use PhpProgrammist\FileSqlLoggerBundle\FileSqlLogger;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PropertyAccess\PropertyAccess;
